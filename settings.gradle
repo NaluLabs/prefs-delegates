@@ -1,0 +1,1 @@
+include ':app', ':prefs-extensions', ':fake-prefs', ':prefs-extensions-gson'
