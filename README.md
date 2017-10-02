@@ -3,6 +3,36 @@ Kotlin delegates for Android Shared Preferences
 
 [![](https://jitpack.io/v/nalulabs/prefs-delegates.svg)](https://jitpack.io/#nalulabs/prefs-delegates)
 
+This project contains three modules:
+ * prefs-delegates: core module to use kotlin delegates for primitive types
+ * prefs-delegates-gson: support for objects serialization using gson
+ * fake-prefs: fake class to simplify testing
+
+This library contains some extensions methods on `SharedPreferences` class, there are no classes to extend.
+It can be used in a class that contains a `SharedPreferences` constructor parameter:
+
+```kotlin
+class TokenHolder(prefs: SharedPreferences) {
+    var token by prefs.string()
+        private set
+
+    var count by prefs.int()
+        private set
+
+    fun saveToken(newToken: String) {
+        token = newToken
+        count++
+    }
+}
+```
+
+When `count++` is invoked the value from the shared preferences is read and the incremented value is saved, 
+under the hood something like this is executed:
+
+```kotlin
+prefs.edit().putInt("count", prefs.getInt("count", 0) + 1).apply()
+```
+
 More info about are available in this
 [Medium post](https://hackernoon.com/kotlin-delegates-in-android-development-part-1-50346cf4aed7).
 
