@@ -23,7 +23,7 @@ android {
 }
 
 dependencies {
-    compile project(path: ':prefs-extensions')
+    compile project(path: ':prefs-delegates')
     compile 'com.android.support:appcompat-v7:26.1.0'
     testCompile 'junit:junit:4.12'
     testCompile project(path: ':fake-prefs')

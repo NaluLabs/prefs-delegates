@@ -23,7 +23,7 @@ android {
 }
 
 dependencies {
-    compile project(path: ':prefs-extensions')
+    compile project(path: ':prefs-delegates')
     compile 'com.google.code.gson:gson:2.8.1'
 
     testCompile 'junit:junit:4.12'
